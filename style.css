@@ -1,0 +1,262 @@
+/* ===================================
+   SUPER MARIO BROS - STYLES
+   =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Press Start 2P', monospace;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+#game-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#gameCanvas {
+    display: block;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    border: 2px solid #333;
+    background: #6888FC;
+}
+
+/* ===== HUD ===== */
+#hud {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 16px;
+    background: #000;
+    color: #FFF;
+    font-size: 11px;
+    letter-spacing: 1px;
+    z-index: 10;
+}
+
+.hud-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.hud-label {
+    color: #FFF;
+    font-size: 10px;
+}
+
+.hud-value {
+    color: #FFF;
+    font-size: 11px;
+}
+
+/* ===== TITLE SCREEN ===== */
+#title-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Semi-transparent so the active game behind is visible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    flex-direction: column;
+}
+
+.title-content {
+    text-align: center;
+    color: #FFF;
+}
+
+.game-title {
+    font-size: 42px;
+    color: #E44437;
+    text-shadow: 
+        3px 3px 0 #7A1800,
+        -1px -1px 0 #FFF,
+        0 0 20px rgba(228, 68, 55, 0.5);
+    margin-bottom: 30px;
+    line-height: 1.4;
+    letter-spacing: 3px;
+    animation: titlePulse 2s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.menu-cursor {
+    margin-right: 5px;
+    animation: blink 0.8s step-end infinite;
+}
+
+.level-selector {
+    margin-top: 20px;
+    font-size: 12px;
+}
+#world-select {
+    font-family: 'Press Start 2P', cursive;
+    background: transparent;
+    color: #FCA044;
+    border: 2px solid #FFF;
+    padding: 5px;
+    outline: none;
+    margin-left: 10px;
+}
+#world-select option {
+    background: #000;
+}
+
+.copyright {
+    font-size: 12px;
+    margin-bottom: 50px;
+    color: #FCE4A8;
+}
+
+.blink-text {
+    font-size: 14px;
+    animation: blink 1s step-end infinite;
+    margin-bottom: 30px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.menu-options {
+    margin-top: 20px;
+}
+
+.menu-item {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.controls-hint {
+    font-size: 9px;
+    color: #B8D0FF;
+    line-height: 1.8;
+    margin-top: 20px;
+}
+
+/* ===== MOBILE CONTROLS ===== */
+#mobile-controls {
+    display: none;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    background: #111;
+}
+
+#dpad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.dpad-row {
+    display: flex;
+    gap: 2px;
+}
+
+.dpad-btn {
+    width: 50px;
+    height: 50px;
+    background: #333;
+    color: #FFF;
+    border: 2px solid #555;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.dpad-btn:active {
+    background: #555;
+}
+
+#action-btns {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.action-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #B13425;
+    color: #FFF;
+    border: 3px solid #E44437;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 16px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.action-btn:active {
+    background: #E44437;
+}
+
+#btn-a {
+    background: #B13425;
+    border-color: #E44437;
+}
+
+#btn-b {
+    background: #1A6B1A;
+    border-color: #2DA82D;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    #mobile-controls {
+        display: flex;
+    }
+    
+    .game-title {
+        font-size: 28px;
+    }
+    
+    .controls-hint {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    #hud {
+        font-size: 8px;
+        padding: 4px 8px;
+    }
+    
+    .hud-label {
+        font-size: 7px;
+    }
+    
+    .hud-value {
+        font-size: 8px;
+    }
+}

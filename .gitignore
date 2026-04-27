@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+
+# Ignore optional configuration files
+*.env
